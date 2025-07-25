@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  /* Base colors */
+  --background: #ffffff;
+  --foreground: #333333;
+  
+  /* Brand colors */
+  --primary: #FFD700; /* Warm mustard yellow */
+  --primary-alt: #00A388; /* Fresh teal */
+  --secondary: #E0E7EB; /* Light grey-blue */
+  --secondary-alt: #FFB3A7; /* Pale coral */
+  --emphasis: #306B34; /* Forest green */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary: #FFD700; /* Keep mustard yellow in dark mode */
+    --primary-alt: #00A388; /* Keep teal in dark mode */
+    --secondary: #2A3A4A; /* Darker blue for dark mode */
+    --secondary-alt: #C28D82; /* Darker coral for dark mode */
+    --emphasis: #4A8C4F; /* Lighter green for dark mode */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Button styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--foreground);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}

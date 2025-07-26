@@ -3,16 +3,26 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 // Import reducers
 import uiReducer from './slices/uiSlice';
+import mealPlanReducer from './slices/mealPlanSlice';
+import mealScheduleReducer from './slices/mealScheduleSlice';
+import orderReducer from './slices/orderSlice';
+import userReducer from './slices/userSlice';
+import supportReducer from './slices/supportSlice';
+import cartReducer from './slices/cartSlice';
 // Future reducers will be imported here
 // Example: import authReducer from './slices/authSlice';
-// Example: import cartReducer from './slices/cartSlice';
 
 export const store = configureStore({
   reducer: {
     ui: uiReducer,
+    mealPlans: mealPlanReducer,
+    mealSchedule: mealScheduleReducer,
+    orders: orderReducer,
+    user: userReducer,
+    support: supportReducer,
+    cart: cartReducer,
     // Add more reducers here as needed
     // Example: auth: authReducer,
-    // Example: cart: cartReducer,
   },
 });
 

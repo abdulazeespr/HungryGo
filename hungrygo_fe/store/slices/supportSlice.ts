@@ -61,7 +61,7 @@ const generateMockTickets = (): SupportTicket[] => {
         {
           id: 'RSP-001',
           from: 'Support Agent (Sarah)',
-          message: 'I apologize for the missing item in your order. I've checked your order details and confirmed that a side salad should have been included. I've issued a credit to your account for the value of the salad ($4.99). The credit will be automatically applied to your next order. Is there anything else I can help you with?',
+          message: 'I apologize for the missing item in your order. I ve checked your order details and confirmed that a side salad should have been included. I ve issued a credit to your account for the value of the salad ($4.99). The credit will be automatically applied to your next order. Is there anything else I can help you with?',
           date: '2023-11-15T16:45:00Z',
         },
       ],
@@ -70,7 +70,7 @@ const generateMockTickets = (): SupportTicket[] => {
       id: 'TKT-982',
       subject: 'App keeps crashing when I try to modify my meal plan',
       category: 'app-website',
-      message: 'Every time I try to change my meal selections for next week, the app crashes. I'm using an iPhone 13 with the latest iOS version. This has been happening for the past two days.',
+      message: 'Every time I try to change my meal selections for next week, the app crashes. I m using an iPhone 13 with the latest iOS version. This has been happening for the past two days.',
       status: 'Open',
       createdAt: '2023-11-12T09:17:00Z',
       updatedAt: '2023-11-12T09:17:00Z',
@@ -79,7 +79,7 @@ const generateMockTickets = (): SupportTicket[] => {
       id: 'TKT-943',
       subject: 'Request for allergen information',
       category: 'meal-quality',
-      message: 'I recently developed a sensitivity to nightshades. Could you provide detailed ingredient information for the Mediterranean Bowl? I want to make sure it doesn't contain tomatoes, peppers, or eggplant.',
+      message: 'I recently developed a sensitivity to nightshades. Could you provide detailed ingredient information for the Mediterranean Bowl? I want to make sure it doesn t contain tomatoes, peppers, or eggplant.',
       status: 'Resolved',
       createdAt: '2023-11-05T11:23:00Z',
       updatedAt: '2023-11-07T14:10:00Z',
@@ -87,7 +87,7 @@ const generateMockTickets = (): SupportTicket[] => {
         {
           id: 'RSP-002',
           from: 'Support Agent (Michael)',
-          message: 'Thank you for reaching out about your dietary needs. I've checked with our culinary team, and I can confirm that our Mediterranean Bowl does contain diced tomatoes and roasted red peppers, which are both nightshades. However, we can customize this dish for you by removing these ingredients. Would you like me to set up a custom version of this meal for your account?',
+          message: 'Thank you for reaching out about your dietary needs. I ve checked with our culinary team, and I can confirm that our Mediterranean Bowl does contain diced tomatoes and roasted red peppers, which are both nightshades. However, we can customize this dish for you by removing these ingredients. Would you like me to set up a custom version of this meal for your account?',
           date: '2023-11-06T10:30:00Z',
         },
         {
@@ -99,7 +99,7 @@ const generateMockTickets = (): SupportTicket[] => {
         {
           id: 'RSP-004',
           from: 'Support Agent (Michael)',
-          message: 'I've created a custom version of the Mediterranean Bowl without tomatoes and peppers for your account. You'll see this option available when selecting your next meals. The system will automatically substitute extra cucumbers and olives to maintain the flavor profile. Please let us know if you need any other customizations!',
+          message: 'I ve created a custom version of the Mediterranean Bowl without tomatoes and peppers for your account. You ll see this option available when selecting your next meals. The system will automatically substitute extra cucumbers and olives to maintain the flavor profile. Please let us know if you need any other customizations!',
           date: '2023-11-07T14:10:00Z',
         },
       ],

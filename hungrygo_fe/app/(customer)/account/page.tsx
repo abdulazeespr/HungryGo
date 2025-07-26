@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { fetchUserProfile, updateUserProfile } from '@/store/slices/userSlice';
 import { gsap } from 'gsap';
-
 interface UserProfile {
   id: string;
   name: string;

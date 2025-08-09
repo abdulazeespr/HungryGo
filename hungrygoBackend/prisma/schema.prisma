@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String    @id @default(uuid())
+  email       String    @unique
+  password    String
+  name        String
+  role        String    // 'customer' | 'admin' | 'agent'
+  status      String    // 'active' | 'inactive'
+  orders      Order[]
+  subscriptions Subscription[]
+  feedbacks   Feedback[]
+  payments    Payment[]
+}
+
+model MealPlan {
+  id          String    @id @default(uuid())
+  name        String
+  price       Float
+  description String?
+  meals       Meal[]
+  orders      Order[]
+  subscriptions Subscription[]
+}
+
+model Meal {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  tags        String[]
+  mealPlan    MealPlan  @relation(fields: [mealPlanId], references: [id])
+  mealPlanId  String
+  orderMeals  OrderMeal[]
+}
+
+model Order {
+  id          String    @id @default(uuid())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  mealPlan    MealPlan  @relation(fields: [mealPlanId], references: [id])
+  mealPlanId  String
+  status      String    // 'pending' | 'delivered' | 'cancelled'
+  createdAt   DateTime  @default(now())
+  orderMeals  OrderMeal[]
+  payments    Payment[]
+  deliveryLogs DeliveryLog[]
+  feedbacks   Feedback[]
+}
+
+model OrderMeal {
+  id        String   @id @default(uuid())
+  order     Order    @relation(fields: [orderId], references: [id])
+  orderId   String
+  meal      Meal     @relation(fields: [mealId], references: [id])
+  mealId    String
+  day       String   // e.g., 'Monday'
+  type      String   // 'Lunch' | 'Dinner'
+}
+
+model Subscription {
+  id          String    @id @default(uuid())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  mealPlan    MealPlan  @relation(fields: [mealPlanId], references: [id])
+  mealPlanId  String
+  status      String    // 'active' | 'paused' | 'cancelled'
+  startDate   DateTime
+  endDate     DateTime?
+}
+
+model Payment {
+  id          String    @id @default(uuid())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  order       Order     @relation(fields: [orderId], references: [id])
+  orderId     String
+  amount      Float
+  status      String    // 'pending' | 'completed' | 'failed'
+  createdAt   DateTime  @default(now())
+}
+
+model DeliveryAgent {
+  id          String    @id @default(uuid())
+  name        String
+  status      String    // 'active' | 'inactive'
+  deliveryLogs DeliveryLog[]
+}
+
+model DeliveryLog {
+  id          String    @id @default(uuid())
+  order       Order     @relation(fields: [orderId], references: [id])
+  orderId     String
+  agent       DeliveryAgent @relation(fields: [agentId], references: [id])
+  agentId     String
+  status      String    // 'assigned' | 'delivered' | 'skipped'
+  deliveredAt DateTime?
+}
+
+model Feedback {
+  id          String    @id @default(uuid())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  order       Order     @relation(fields: [orderId], references: [id])
+  orderId     String
+  rating      Int
+  comment     String?
+  createdAt   DateTime  @default(now())
+}
